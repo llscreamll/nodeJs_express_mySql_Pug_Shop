@@ -1,0 +1,6 @@
+include header
+div(class="items")
+    each i in goods
+        div(class="item")
+            p #{i['name']}
+            img(src=`images/${i['image']}`)

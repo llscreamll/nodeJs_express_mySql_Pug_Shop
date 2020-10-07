@@ -1,0 +1,24 @@
+include header
+
+div(class="wrap")
+    div(class="content")
+        header(class="site-header")
+            include site_header
+        
+        div(class="container")
+            div(class="row")
+                div(class="col col-md-12")
+                    h2(class="panel-title") #{goods["name"]}
+                div(class="col col-md-4")
+                    img(src=`/images/${goods['image']}` class="card-images")
+                    div(class="row")
+                        each img in goods_images
+                            div(class="col col-md-6")
+                                img(src=`/images/${img['path']}` class="card-litleImages")
+                           
+                div(class="col col-md-8")
+                    p #{goods["description"]}
+                    span(class="success") Цуна: #{goods["cost"].toFixed(2).replace(/\d(?=(\d{3})+\.)/g,'$& ')} ua
+                    button(class="button-success add-to-cart" data-goods_id=goods["id"]) to cart
+        include nav
+    include footer
